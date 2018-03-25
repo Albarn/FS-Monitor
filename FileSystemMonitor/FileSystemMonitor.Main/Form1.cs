@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FileSystemMonitor.Logic;
+using System;
 using System.Windows.Forms;
-using FileSystemMonitor.Logic;
 
 namespace FileSystemMonitor.Main
 {
@@ -55,8 +48,7 @@ namespace FileSystemMonitor.Main
                 MessageBox.Show(ex.Message);
                 return;
             }
-
-            folderNameLabel.Text = path.Substring(path.LastIndexOf('\\') + 1);
+            toolStripStatusLabel2.Text = path;
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -93,6 +85,21 @@ namespace FileSystemMonitor.Main
         {
             openFileDialog1.ShowDialog();
             monitor.SaveLogToFile(openFileDialog1.FileName);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void файлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void оПрограммеToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            (new AboutBox1()).Show();
         }
     }
 }

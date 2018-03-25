@@ -49,10 +49,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Icon1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="Dependencies\Dependencies.cd" />
+    <None Include="Dependencies\Interfaces.cd" />
+    <None Include="Events.cd" />
+    <None Include="FSMonitorDiagram.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,38 +29,137 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выбратьПапкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьЛогToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.logRichTextBox = new System.Windows.Forms.RichTextBox();
             this.controlPanel = new System.Windows.Forms.Panel();
-            this.saveLogButton = new System.Windows.Forms.Button();
             this.startButton = new System.Windows.Forms.Button();
             this.monitorModeGroupBox = new System.Windows.Forms.GroupBox();
             this.modeRadioButton2 = new System.Windows.Forms.RadioButton();
             this.modeRadioButton1 = new System.Windows.Forms.RadioButton();
-            this.folderChooseGroupBox = new System.Windows.Forms.GroupBox();
-            this.folderBrowseButton = new System.Windows.Forms.Button();
-            this.folderNameLabel = new System.Windows.Forms.Label();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.controlPanel.SuspendLayout();
             this.monitorModeGroupBox.SuspendLayout();
-            this.folderChooseGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.tableLayoutPanel1.Controls.Add(this.logRichTextBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.controlPanel, 1, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.statusStrip1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 227);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(310, 234);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.файлToolStripMenuItem,
+            this.оПрограммеToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(310, 20);
+            this.menuStrip1.TabIndex = 2;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.выбратьПапкуToolStripMenuItem,
+            this.сохранитьЛогToolStripMenuItem});
+            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 16);
+            this.файлToolStripMenuItem.Text = "Файл";
+            this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            // 
+            // выбратьПапкуToolStripMenuItem
+            // 
+            this.выбратьПапкуToolStripMenuItem.Name = "выбратьПапкуToolStripMenuItem";
+            this.выбратьПапкуToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.выбратьПапкуToolStripMenuItem.Text = "Выбрать папку...";
+            this.выбратьПапкуToolStripMenuItem.Click += new System.EventHandler(this.folderBrowseButton_Click);
+            // 
+            // сохранитьЛогToolStripMenuItem
+            // 
+            this.сохранитьЛогToolStripMenuItem.Name = "сохранитьЛогToolStripMenuItem";
+            this.сохранитьЛогToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.сохранитьЛогToolStripMenuItem.Text = "Сохранить лог...";
+            this.сохранитьЛогToolStripMenuItem.Click += new System.EventHandler(this.saveLogButton_Click);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.оПрограммеToolStripMenuItem1});
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(68, 16);
+            this.оПрограммеToolStripMenuItem.Text = "Помощь";
+            // 
+            // оПрограммеToolStripMenuItem1
+            // 
+            this.оПрограммеToolStripMenuItem1.Name = "оПрограммеToolStripMenuItem1";
+            this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
+            this.оПрограммеToolStripMenuItem1.Text = "О программе...";
+            this.оПрограммеToolStripMenuItem1.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem1_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 214);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(310, 20);
+            this.statusStrip1.TabIndex = 1;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 15);
+            this.toolStripStatusLabel1.Text = "папка:";
+            // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(0, 15);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 107F));
+            this.tableLayoutPanel2.Controls.Add(this.logRichTextBox, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.controlPanel, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 23);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(304, 188);
+            this.tableLayoutPanel2.TabIndex = 3;
             // 
             // logRichTextBox
             // 
@@ -68,35 +167,24 @@
             this.logRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logRichTextBox.Location = new System.Drawing.Point(3, 3);
             this.logRichTextBox.Name = "logRichTextBox";
-            this.logRichTextBox.Size = new System.Drawing.Size(242, 221);
+            this.logRichTextBox.ReadOnly = true;
+            this.logRichTextBox.Size = new System.Drawing.Size(191, 182);
             this.logRichTextBox.TabIndex = 0;
             this.logRichTextBox.Text = "";
             // 
             // controlPanel
             // 
-            this.controlPanel.Controls.Add(this.saveLogButton);
             this.controlPanel.Controls.Add(this.startButton);
             this.controlPanel.Controls.Add(this.monitorModeGroupBox);
-            this.controlPanel.Controls.Add(this.folderChooseGroupBox);
             this.controlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.controlPanel.Location = new System.Drawing.Point(251, 3);
+            this.controlPanel.Location = new System.Drawing.Point(200, 3);
             this.controlPanel.Name = "controlPanel";
-            this.controlPanel.Size = new System.Drawing.Size(104, 221);
+            this.controlPanel.Size = new System.Drawing.Size(101, 182);
             this.controlPanel.TabIndex = 1;
-            // 
-            // saveLogButton
-            // 
-            this.saveLogButton.Location = new System.Drawing.Point(6, 164);
-            this.saveLogButton.Name = "saveLogButton";
-            this.saveLogButton.Size = new System.Drawing.Size(89, 23);
-            this.saveLogButton.TabIndex = 3;
-            this.saveLogButton.Text = "сохранить лог";
-            this.saveLogButton.UseVisualStyleBackColor = true;
-            this.saveLogButton.Click += new System.EventHandler(this.saveLogButton_Click);
             // 
             // startButton
             // 
-            this.startButton.Location = new System.Drawing.Point(6, 135);
+            this.startButton.Location = new System.Drawing.Point(6, 73);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(89, 23);
             this.startButton.TabIndex = 2;
@@ -108,9 +196,9 @@
             // 
             this.monitorModeGroupBox.Controls.Add(this.modeRadioButton2);
             this.monitorModeGroupBox.Controls.Add(this.modeRadioButton1);
-            this.monitorModeGroupBox.Location = new System.Drawing.Point(0, 69);
+            this.monitorModeGroupBox.Location = new System.Drawing.Point(3, 3);
             this.monitorModeGroupBox.Name = "monitorModeGroupBox";
-            this.monitorModeGroupBox.Size = new System.Drawing.Size(104, 64);
+            this.monitorModeGroupBox.Size = new System.Drawing.Size(92, 64);
             this.monitorModeGroupBox.TabIndex = 1;
             this.monitorModeGroupBox.TabStop = false;
             this.monitorModeGroupBox.Text = "режим";
@@ -137,35 +225,6 @@
             this.modeRadioButton1.Text = "пассивный";
             this.modeRadioButton1.UseVisualStyleBackColor = true;
             // 
-            // folderChooseGroupBox
-            // 
-            this.folderChooseGroupBox.Controls.Add(this.folderBrowseButton);
-            this.folderChooseGroupBox.Controls.Add(this.folderNameLabel);
-            this.folderChooseGroupBox.Location = new System.Drawing.Point(0, 3);
-            this.folderChooseGroupBox.Name = "folderChooseGroupBox";
-            this.folderChooseGroupBox.Size = new System.Drawing.Size(101, 63);
-            this.folderChooseGroupBox.TabIndex = 0;
-            this.folderChooseGroupBox.TabStop = false;
-            this.folderChooseGroupBox.Text = "папка";
-            // 
-            // folderBrowseButton
-            // 
-            this.folderBrowseButton.Location = new System.Drawing.Point(6, 36);
-            this.folderBrowseButton.Name = "folderBrowseButton";
-            this.folderBrowseButton.Size = new System.Drawing.Size(89, 23);
-            this.folderBrowseButton.TabIndex = 1;
-            this.folderBrowseButton.Text = "обзор";
-            this.folderBrowseButton.UseVisualStyleBackColor = true;
-            this.folderBrowseButton.Click += new System.EventHandler(this.folderBrowseButton_Click);
-            // 
-            // folderNameLabel
-            // 
-            this.folderNameLabel.AutoSize = true;
-            this.folderNameLabel.Location = new System.Drawing.Point(7, 20);
-            this.folderNameLabel.Name = "folderNameLabel";
-            this.folderNameLabel.Size = new System.Drawing.Size(0, 13);
-            this.folderNameLabel.TabIndex = 0;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -174,16 +233,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(358, 227);
+            this.ClientSize = new System.Drawing.Size(310, 234);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Монитор файловой системы";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.controlPanel.ResumeLayout(false);
             this.monitorModeGroupBox.ResumeLayout(false);
             this.monitorModeGroupBox.PerformLayout();
-            this.folderChooseGroupBox.ResumeLayout(false);
-            this.folderChooseGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -193,16 +258,22 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox logRichTextBox;
         private System.Windows.Forms.Panel controlPanel;
-        private System.Windows.Forms.Button saveLogButton;
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.GroupBox monitorModeGroupBox;
         private System.Windows.Forms.RadioButton modeRadioButton2;
         private System.Windows.Forms.RadioButton modeRadioButton1;
-        private System.Windows.Forms.GroupBox folderChooseGroupBox;
-        private System.Windows.Forms.Button folderBrowseButton;
-        private System.Windows.Forms.Label folderNameLabel;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выбратьПапкуToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьЛогToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
     }
 }
 
