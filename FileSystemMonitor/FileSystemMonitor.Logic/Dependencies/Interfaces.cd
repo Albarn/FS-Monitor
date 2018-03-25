@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="FileSystemMonitor.Logic.Dependencies.IWatcher">
+    <Position X="0.75" Y="0.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAwAAAIAQAEAAAAAACAAAAAAAACACAAAAAA=</HashCode>
+      <FileName>Dependencies\IWatcher.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FileSystemMonitor.Logic.Dependencies.IDirectory">
+    <Position X="4.5" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Dependencies\IDirectory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

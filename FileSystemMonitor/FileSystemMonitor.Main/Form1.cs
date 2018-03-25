@@ -44,10 +44,17 @@ namespace FileSystemMonitor.Main
             folderBrowserDialog1.ShowDialog();
             string path = folderBrowserDialog1.SelectedPath;
             folderSelected = true;
-
-            monitor = new FSMonitor(path);
-            monitor.Changed += Monitor_Changed;
-            monitor.Error += Monitor_Error;
+            try
+            {
+                monitor = new FSMonitor(path);
+                monitor.Changed += Monitor_Changed;
+                monitor.Error += Monitor_Error;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
 
             folderNameLabel.Text = path.Substring(path.LastIndexOf('\\') + 1);
         }

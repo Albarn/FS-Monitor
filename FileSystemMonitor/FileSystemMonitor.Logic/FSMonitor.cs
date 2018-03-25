@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FileSystemMonitor.Logic.Dependencies;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -6,33 +7,42 @@ namespace FileSystemMonitor.Logic
 {
     public class FSMonitor
     {
-        FileSystemWatcher watcher;
+        IWatcher watcher;
+        IDirectory directory;
 
         public List<string> log;
         
         public event ErrorEventHandler Error;
         public event FSChangedHandler Changed;
 
-        public FSMonitor(string path)
+        public FSMonitor(string path, IWatcher watcher=null, 
+            IDirectory directory=null)
         {
             log = new List<string>();
             log.Add($"[{DateTime.Now.ToString("HH:mm")}]" + 
                 " лог монитора директории " + path);
 
-            watcher =new FileSystemWatcher(path);
+            if (watcher == null) watcher = new FSWatcher();
+            if (directory == null) directory = new FSDirectory();
 
-            watcher.Error += Watcher_Error;
-            watcher.Changed += Watcher_Changed;
-            watcher.Renamed += Watcher_Renamed;
-            watcher.Created += Watcher_Created;
-            watcher.Deleted += Watcher_Deleted;
+            this.watcher = watcher;
+            this.directory = directory;
+
+            watcher.Path = path;
+            directory.Path = path;
+
+            watcher.SubscribeError(Watcher_Error);
+            watcher.SubscribeChanged(Watcher_Changed);
+            watcher.SubscribeRenamed(Watcher_Renamed);
+            watcher.SubscribeCreated(Watcher_Created);
+            watcher.SubscribeDeleted(Watcher_Deleted);
 
             watcher.IncludeSubdirectories = true;
         }
 
         public void Start()
         {
-            if (Directory.Exists(watcher.Path))
+            if (directory.Exists())
             {
                 watcher.EnableRaisingEvents = true;
                 log.Add($"[{DateTime.Now.ToString("HH:mm")}]" +

@@ -40,9 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dependencies\FSDirectory.cs" />
+    <Compile Include="Dependencies\IDirectory.cs" />
+    <Compile Include="Dependencies\IWatcher.cs" />
+    <Compile Include="Dependencies\FSWatcher.cs" />
     <Compile Include="FSMonitor.cs" />
     <Compile Include="FSChangedEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
