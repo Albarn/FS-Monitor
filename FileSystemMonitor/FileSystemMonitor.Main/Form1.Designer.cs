@@ -227,6 +227,7 @@
             // 
             // openFileDialog1
             // 
+            this.openFileDialog1.CheckFileExists = false;
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1

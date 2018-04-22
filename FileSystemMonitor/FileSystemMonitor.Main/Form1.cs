@@ -6,7 +6,7 @@ namespace FileSystemMonitor.Main
 {
     public partial class Form1 : Form
     {
-        FSMonitor monitor;
+        FSMonitor monitor = null;
         bool folderSelected = false;
 
         public Form1()
@@ -34,21 +34,36 @@ namespace FileSystemMonitor.Main
 
         private void folderBrowseButton_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.ShowDialog();
-            string path = folderBrowserDialog1.SelectedPath;
-            folderSelected = true;
-            try
+            if (monitor == null || MessageBox
+                .Show(
+                "при выборе новой папки для мониторинга, " +
+                "вы потеряете текущую историю мониторинга. продолжить?",
+                "выбор папки",
+                MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                monitor = new FSMonitor(path);
-                monitor.Changed += Monitor_Changed;
-                monitor.Error += Monitor_Error;
+                if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (monitor != null && startButton.Text == "стоп")
+                    {
+                        PushButton();
+                    }
+                    string path = folderBrowserDialog1.SelectedPath;
+                    folderSelected = true;
+                    try
+                    {
+                        monitor = new FSMonitor(path);
+                        monitor.Changed += Monitor_Changed;
+                        monitor.Error += Monitor_Error;
+                        logRichTextBox.Text = "";
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        return;
+                    }
+                    toolStripStatusLabel2.Text = path;
+                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                return;
-            }
-            toolStripStatusLabel2.Text = path;
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -57,8 +72,8 @@ namespace FileSystemMonitor.Main
             {
                 try
                 {
-                    startButton.Invoke(new Action(() => NewMethod()));
-                    
+                    startButton.Invoke(new Action(() => PushButton()));
+
                 }
                 catch (Exception ex)
                 {
@@ -67,7 +82,7 @@ namespace FileSystemMonitor.Main
             }
         }
 
-        private void NewMethod()
+        private void PushButton()
         {
             if (startButton.Text == "запуск")
             {
